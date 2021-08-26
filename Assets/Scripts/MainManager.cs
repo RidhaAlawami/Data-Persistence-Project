@@ -81,6 +81,7 @@ public class MainManager : MonoBehaviour
         m_GameOver = true;
         GameOverText.SetActive(true);
         GameManager.Instance.Record(GameManager.Instance.playerName, m_Points);
+        GameManager.Instance.playerName = "";
         DisplayHighestRecord();
     }
 }

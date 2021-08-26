@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     // singleton
     public static GameManager Instance;
-    public string playerName;
+    public string playerName = "";
 
     public const int EntryCount = 10;
     public List<ScoreEntry> s_Entries = new List<ScoreEntry>();
@@ -94,6 +94,10 @@ public class GameManager : MonoBehaviour
 
     public void Record(string name, int score)
     {
+        if(name == "" || name == null)
+        {
+            name = "Player";
+        }
         s_Entries.Add(new ScoreEntry(name, score));
         SortScores();
         s_Entries.RemoveAt(s_Entries.Count - 1);
